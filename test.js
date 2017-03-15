@@ -3,7 +3,7 @@ function map(func, array) {
 
   function iterate(i) {
     if (i === array.length)
-      return
+      return;
 
     result[i] = func(array[i], i, array);
     iterate(++i);
