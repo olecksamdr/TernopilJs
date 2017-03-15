@@ -9,5 +9,7 @@ function map(func, array) {
     iterate(++i);
   }
 
-  iterate()
+  iterate(0);
+
+  return result;
 }
