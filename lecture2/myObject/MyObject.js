@@ -32,5 +32,6 @@ MyObject.prototype.hidden = function (key, val) {
 }
 
 MyObject.prototype.values = function () {
-  return Object.keys(this);
+  var self = this;
+  return Object.keys(this).map(function (key) { return self[key]; });
 }
