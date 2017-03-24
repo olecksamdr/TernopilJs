@@ -1,6 +1,23 @@
+// щоб передати дані далі по ланцюгу промісів ця
+// ф-ція приймає і передає data
+var hideLoader = function(data) {
+  var loader = document.getElementById('loader');
+
+  loader.classList.add('hide');
+
+  return data;
+};
+
+var showLoader = function() {
+  var loader = document.getElementById('loader');
+
+  loader.classList.remove('hide');
+};
+
+
 //====================================================
 var printUserInf = function(userInfCont, user) {
-  var html = '<h1>' + user.name + '</h1>'
+  var html = '<h1>Користувач: ' + user.name + '</h1>'
   userInfCont.insertAdjacentHTML('beforeEnd', html);
 }
 
@@ -8,7 +25,7 @@ var printAlbums = function(albumsCnt, albums) {
   var html = '';
 
   albums.forEach((album) => {
-    html += '<h3>' + album.title + '</h3><ul>';
+    html += '<h3>Альбом: ' + album.title + '</h3><ul>';
 
     album.photos.forEach((photo) => {
       html += '<li><a target="_blank" href="' + photo.url + '">' + photo.title + '</a></li>'
@@ -102,11 +119,14 @@ var loadAlbumWithPhotos = function() {
     photosCnt = document.getElementById('output'),
     uid = getUserId('user-id');
 
+  showLoader();
+
   getUser(uid)
     .then(toJson)
     .then((arrWithUsr) => arrWithUsr[0])  // ми отримаєм 1 лементний масив, а треба лише обєкт
     .then(addAlbums)                      // завантажує і додає масив альбомів до обєкта користувача
     .then(combineWithPhotos)              // завантажує і додає фото до альбомів
+    .then(hideLoader)
     .then(print(photosCnt));
 };
 
