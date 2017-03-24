@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>get user photos</title>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/ramda.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <label>
+      Id Користувача (1-10)
+      <input type="text" id="user-id">
+      <button id="load-album">Завантажити альбоми</button>
+    </label>
+
+    <div id="output">
+      <!--  -->
+    </div> <!-- end output -->
+
+    <div id="loader" class="spinner hide">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
+
+  </div> <!-- end container -->
+
+  <script src="js/loadAlbums.js"></script>
+</body>
+</html>
