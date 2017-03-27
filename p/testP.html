@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test elements creation</title>
+	<script type="text/javascript" src="p.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var view = p('div', {id: 'header'}, [
+			p('div', {textContent: 'Привіт, TernopilJS!'}),
+			p('div', {textContent: ' Базовий приклад SPA без використання сторонніх бібліотек.'}),
+			p('a', {href: '#', textContent: 'Перейти на привітання', onclick(evt) {evt.preventDefault(); router.navigate('/hello')}}),
+			p('a', {href: '#', textContent: 'Перейти назад', onclick(evt) {evt.preventDefault(); router.navigateBack()}})
+		]);
+
+		var view2 = p('div', {id: 'header'}, [
+		  p('div', {style: 'font-size: 2rem;'}, 'Привіт, TernopilJS!'),
+		  p('br'),	
+		  p('div', null, 'Базовий приклад SPA без використання сторонніх бібліотек.'),
+		  p('br'),
+		  p('a', {href: '#', onclick(evt) {evt.preventDefault(); router.navigate('/hello')}}, 'Перейти на привітання'),
+		  ' ',
+		  p('a', {href: '#', onclick(evt) {evt.preventDefault(); router.navigateBack()}}, [
+		    'Перейти ',
+		    p('span', {style: {color: 'black'}}, 'назад')
+		  ])
+		]);
+
+		document.body.appendChild(view2);
+	</script>
+</body>
+</html>
