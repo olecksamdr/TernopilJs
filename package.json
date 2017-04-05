@@ -1,0 +1,24 @@
+{
+  "name": "view_github",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olecksamdr/TernopilJs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olecksamdr/TernopilJs/issues"
+  },
+  "homepage": "https://github.com/olecksamdr/TernopilJs#readme",
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
+    "yargs": "^7.0.2"
+  }
+}
