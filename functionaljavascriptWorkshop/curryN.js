@@ -1,18 +1,18 @@
-function curryN(fn, n) {
-  n = n == null ? fn.length : n;
+// Мені не вдалося зробити це завдання самостійно
+// https://gist.github.com/kevincennis/6db9923d797c5f30dc6e
 
-  return function () {
-    console.log('N is:', n);
+function curryN( fn ) {
+  var arity = fn.length;
 
-    let args = [].slice.call(arguments);
+  return (function resolver() {
+    var mem = Array.prototype.slice.call( arguments );
 
-    if (args.length >= n)
-      return fn.apply(null, args);
-
-    fn = fn.bind(null, ...args);
-
-    return curryN(fn, n - args.length);
-  }
+    return function() {
+      var args = mem.slice();
+      Array.prototype.push.apply( args, arguments );
+      return ( args.length >= arity ? fn : resolver ).apply( null, args );
+    };
+  }());
 }
 
 module.exports = curryN;
